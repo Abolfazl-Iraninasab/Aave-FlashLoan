@@ -33,7 +33,7 @@ contract flashLoan is FlashLoanReceiverBase {
         amounts[0] = amount1;
         amounts[1] = amount2;
 
-        uint256[] memory modes = new uint256[](1);
+        uint256[] memory modes = new uint256[](2);
         // no debt for both tokens : pay all loaned
         modes[0] = 0;
         modes[1] = 0;
@@ -59,6 +59,7 @@ contract flashLoan is FlashLoanReceiverBase {
         address initiator,
         bytes calldata params
     ) external override returns (bool) {
+        emit Log("abol" , 22) ;
         for (uint256 i = 0; i < assets.length; i++) {
             IERC20(assets[i]).approve(
                 address(LENDING_POOL),
